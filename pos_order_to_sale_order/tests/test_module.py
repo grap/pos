@@ -37,7 +37,14 @@ class TestUi(TestPointOfSaleHttpCommon):
 
         order = after_orders[-1]
 
-        self.assertEqual(order.amount_total, 3.2)
+        expected_note = "Product Note"
+
+        self.assertEqual(order.amount_total, 5.18)
         self.assertEqual(order.state, "sale")
         self.assertEqual(order.delivery_status, "full")
         self.assertEqual(order.invoice_status, "invoiced")
+
+        line_1, line_2 = order.order_line
+
+        self.assertNotIn(expected_note, line_1.name)
+        self.assertIn(expected_note, line_2.name)
