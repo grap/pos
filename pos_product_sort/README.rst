@@ -45,10 +45,14 @@ Once installed, the products are sorted by name :
 .. contents::
    :local:
 
-Known issues / Roadmap
-======================
+Configuration
+=============
 
-* add settings on ``pos.config`` to let users choose the field(s) to sort the products.
+* Go to 'Point Of Sale > Configuration'
+
+Define the field 'Product Order'
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_product_sort/static/description/pos_config_form.png
 
 Bug Tracker
 ===========
