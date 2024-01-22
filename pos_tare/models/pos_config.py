@@ -1,4 +1,4 @@
-from odoo import api, models, fields
+from odoo import fields, models
 
 
 class PosConfig(models.Model):
@@ -22,20 +22,9 @@ class PosConfig(models.Model):
     iface_gross_weight_method = fields.Selection(
         [
             ("manual", "Input the Gross Weight manually"),
-            ("scale", "Input Gross Weight via Scale")
+            ("scale", "Input Gross Weight via Scale"),
         ],
         string="Gross Weight Input Method",
         default="scale",
         required=True,
     )
-
-    iface_tare_uom_id = fields.Many2one(
-        string="Unit of Measure of the tare",
-        comodel_name="uom.uom",
-        default=lambda s: s._default_iface_tare_uom_id(),
-        required=True,
-    )
-
-    @api.model
-    def _default_iface_tare_uom_id(self):
-        return self.env.ref("uom.product_uom_kgm")
