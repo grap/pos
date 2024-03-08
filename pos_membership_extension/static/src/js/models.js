@@ -55,21 +55,25 @@ odoo.define("pos_membership_extension.models", function (require) {
             set_partner(partner) {
                 var self = this;
                 var bad_product_list = [];
-                this.orderlines.forEach(function (orderline) {
-                    if (!orderline.product.get_membership_allowed(partner)) {
-                        bad_product_list.push(orderline.product.display_name);
-                        self.orderlines.remove(orderline);
-                    }
-                });
+                this.orderlines
+                    .slice()
+                    .reverse()
+                    .forEach(function (item, index, object) {
+                        console.log("analyzing : ", item);
+                        if (!item.product.get_membership_allowed(partner)) {
+                            console.log("Removing !");
+                            bad_product_list.push(item.product.display_name);
+                            self.orderlines.splice(object.length - 1 - index, 1);
+                        }
+                    });
                 if (bad_product_list.length !== 0) {
-                    var bad_product_text = bad_product_list.join(", ");
+                    var bad_product_text = bad_product_list.join(", \n- ");
                     Gui.showPopup("ErrorPopup", {
                         title: _t("Order Line Removal"),
                         body: _t(
-                            `The following lines has been removed, as the product cannot be sold to this partner: ${bad_product_text}`
+                            `The following lines has been removed, as the product cannot be sold to this partner:\n - ${bad_product_text}`
                         ),
                     });
-                    return;
                 }
 
                 return super.set_partner(...arguments);
