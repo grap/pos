@@ -2,10 +2,8 @@ odoo.define("pos_membership_extension.ProductScreen", function (require) {
     const ProductScreen = require("point_of_sale.ProductScreen");
     const Registries = require("point_of_sale.Registries");
 
-    // eslint-disable-next-line no-shadow
-    const OverloadProductScreen = (ProductScreen) =>
-        // eslint-disable-next-line no-shadow
-        class OverloadProductScreen extends ProductScreen {
+    const OverloadProductScreen = (OriginalProductScreen) =>
+        class OverloadProductScreen extends OriginalProductScreen {
             async _getAddProductOptions(product) {
                 var self = this;
                 if (!product.get_membership_allowed(this.env.pos.get_order().partner)) {
