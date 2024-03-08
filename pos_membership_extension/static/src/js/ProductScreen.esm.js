@@ -1,6 +1,4 @@
 odoo.define("pos_membership_extension.ProductScreen", function (require) {
-    "use strict";
-
     const ProductScreen = require("point_of_sale.ProductScreen");
     const Registries = require("point_of_sale.Registries");
 

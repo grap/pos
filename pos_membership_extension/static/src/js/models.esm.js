@@ -1,6 +1,4 @@
 odoo.define("pos_membership_extension.models", function (require) {
-    "use strict";
-
     const {Order, Product} = require("point_of_sale.models");
 
     var core = require("web.core");

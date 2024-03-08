@@ -16,9 +16,9 @@
     "assets": {
         "point_of_sale.assets": [
             "pos_membership_extension/static/src/css/pos.css",
-            "pos_membership_extension/static/src/js/ProductItem.js",
-            "pos_membership_extension/static/src/js/ProductScreen.js",
-            "pos_membership_extension/static/src/js/models.js",
+            "pos_membership_extension/static/src/js/ProductItem.esm.js",
+            "pos_membership_extension/static/src/js/ProductScreen.esm.js",
+            "pos_membership_extension/static/src/js/models.esm.js",
             "pos_membership_extension/static/src/xml/ProductItem.xml",
             "pos_membership_extension/static/src/xml/ProductInfoPopup.xml",
         ],
