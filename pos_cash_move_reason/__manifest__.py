@@ -22,4 +22,11 @@
         "demo/account_journal.xml",
         "demo/pos_move_reason.xml",
     ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_cash_move_reason/static/src/css/*.scss",
+            "pos_cash_move_reason/static/src/xml/**.xml",
+            "pos_cash_move_reason/static/src/js/**.js",
+        ],
+    },
 }

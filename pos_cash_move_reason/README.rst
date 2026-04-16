@@ -29,7 +29,7 @@ POS cash in-out reason
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allow to define some reasons for the functionality of
-"Put Money In" and "Take Money Out" available in point of sale session.
+"Cash In / Out" available in point of sale session.
 
 So, with this module it's possible to impact directly an expense or income
 account which is defined on the related reasons and create according
@@ -73,6 +73,8 @@ to enable the feature.
 Usage
 =====
 
+**In backoffice**
+
 * Go to your current session
 
 * Click on the button "Put Money In" or "Take Money Out"
@@ -84,11 +86,23 @@ Usage
 
 .. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_cash_move_reason/static/description/wizard_pos_move_reason_form.png
 
-* When closing the session, an account move will be created, with two lines,
+* An account move will be created, with two lines,
   one with the default journal account, and one with the expense / income
   reason account.
 
 .. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_cash_move_reason/static/description/account_move_form.png
+
+**In POS UI**
+
+* Click on Cash In / Out
+
+* Choose Cash In or Cash Out then write the amount
+
+* Choose a Reason
+
+* If it has a Journal, choose Journal and confirm
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_cash_move_reason/static/description/pos_cash_move_ui.png
 
 Known issues / Roadmap
 ======================
@@ -100,6 +114,10 @@ hide native obsolete actions available on the model ``pos.session``
 
 Changelog
 =========
+
+16.0.2.0.0 (2025-07-27)
+~~~~~~~~~~~~~~~~~~~~~~~
+* [IMP] This module works directly on POS UI
 
 16.0.1.0.0 (2025-07-27)
 ~~~~~~~~~~~~~~~~~~~~~~~
