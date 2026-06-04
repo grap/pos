@@ -117,7 +117,9 @@ class PosSession(models.Model):
                     "payment_ref": "-".join(
                         [move_reason.name, extras["translatedType"], reason]
                     ),
+                    # Add this part
                     "counterpart_account_id": account_id,
+                    "pos_move_reason": move_reason.id,
                 }
                 for session in sessions
             ]
