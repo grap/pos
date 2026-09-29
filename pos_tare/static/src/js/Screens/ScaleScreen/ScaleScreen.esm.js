@@ -66,17 +66,12 @@ const TareScaleScreen = (ScaleScreen_) =>
 
         async _setWeight() {
             if (this.has_tare && this.env.pos.config.iface_send_tare_to_scale) {
-                // This is the same as _setWeight() except that it calls
-                // scale_read_with_tare() instead of scale_read().
-                // The tare must be sent in the same unit as received by the
-                // scale.
-                const reading = await this.env.proxy.scale_read_with_tare(
-                    this.state.tare_in_product_uom
-                );
-                this.state.weight = reading.weight;
+                this.env.proxy.scale_read_tare_option = this.state.tare_in_product_uom;
             } else {
-                await super._setWeight();
+                this.env.proxy.scale_read_tare_option = false;
             }
+            await super._setWeight();
+
             // If no scale is connected, the returned weight can be undefined.
             // Default to 0 to avoid errors down the line.
             this.state.gross_weight = this.state.weight || 0;
